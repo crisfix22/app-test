@@ -5,25 +5,10 @@ import { useHomeItem } from "./hooks/useHomeItem.hook";
 import TextCustomComponent from "../../../../global/components/TextCustom/textCustom.component";
 import { useNavigation } from "@react-navigation/native";
 
-const formatAmount = (amount: number): string => {
-    return new Intl.NumberFormat('es-CL', {
-        style: 'currency',
-        currency: 'CLP',
-        minimumFractionDigits: 0,
-    }).format(amount);
-};
 
-const formatDate = (date: Date): string => {
-    const dateObj = new Date(date);
-    return dateObj.toLocaleDateString('es-CL', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric',
-    });
-};
 
 export const HomeItemComponent = ({ operation }: HomeItemProps) => {
-    const { getCarbonScoreColor } = useHomeItem();
+    const { getCarbonScoreColor, formatAmount, formatDate } = useHomeItem();
     const navigation = useNavigation();
     const navigateToHomeDetail = () => {
         navigation.navigate("HomeDetail", {  operationId: operation.id } );
