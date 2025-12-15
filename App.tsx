@@ -11,6 +11,9 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import { Navigation } from './src/screens/navigation/root.navigation';
+import React from 'react';
+import { UserProvider } from './src/context/user/user.context';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -27,11 +30,10 @@ function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+    <View style={[styles.container, { paddingTop: safeAreaInsets.top }]}>
+      <UserProvider>
+        <Navigation />
+      </UserProvider>
     </View>
   );
 }
