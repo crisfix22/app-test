@@ -1,4 +1,4 @@
-export type EmptyStateType = "error" | "empty";
+export type EmptyStateType = "error" | "empty" | "not_found";
 
 export type EmptyStateConfig = {
     [K in EmptyStateType]: {

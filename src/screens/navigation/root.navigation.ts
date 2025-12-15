@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { HomeScreen } from "../home/home.screen";
 import { createStaticNavigation, StaticParamList } from "@react-navigation/native";
 import LoginScreen from "../login/login.screen";
+import { HomeDetailScreen } from "../homeDetail/homeDetail.screen";
 
 const RootStack = createNativeStackNavigator({
     initialRouteName: "Login",
@@ -9,13 +10,19 @@ const RootStack = createNativeStackNavigator({
       Home: {
         screen: HomeScreen,
         options: {
-          headerShown: false,
+          title: "Operaciones",
         },
       },
       Login: {
         screen: LoginScreen,
         options: {
           headerShown: false,
+        },
+      },
+      HomeDetail: {
+        screen: HomeDetailScreen,
+        options: {
+          title: "Detalle de la operación",
         },
       }
     },

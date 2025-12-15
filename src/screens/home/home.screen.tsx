@@ -7,6 +7,7 @@ import { SkeletonList } from "./components/SkeletonItem/SkeletonItem.component";
 import { EmptyStateComponent } from "./components/EmptyState/EmptyState.component";
 import { styles } from "./home.styles";
 import TextCustomComponent from "../../global/components/TextCustom/textCustom.component";
+import { HomeProvider } from "./context/home.context";
 
 export const HomeScreen = () => {
     const { getHome } = useHome();
@@ -48,11 +49,8 @@ export const HomeScreen = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <TextCustomComponent text="Operaciones" color="text_primary" fontSize={28} fontWeight="bold" />
+            <View style={styles.container}>
+                {renderContent()}
             </View>
-            {renderContent()}
-        </View>
     );
 };

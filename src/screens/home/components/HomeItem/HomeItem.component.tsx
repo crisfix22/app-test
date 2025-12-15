@@ -1,8 +1,9 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { HomeItemProps } from "./interface/homeIten.interface";
 import { styles } from "./HomeItem.styles";
 import { useHomeItem } from "./hooks/useHomeItem.hook";
 import TextCustomComponent from "../../../../global/components/TextCustom/textCustom.component";
+import { useNavigation } from "@react-navigation/native";
 
 const formatAmount = (amount: number): string => {
     return new Intl.NumberFormat('es-CL', {
@@ -23,8 +24,12 @@ const formatDate = (date: Date): string => {
 
 export const HomeItemComponent = ({ operation }: HomeItemProps) => {
     const { getCarbonScoreColor } = useHomeItem();
+    const navigation = useNavigation();
+    const navigateToHomeDetail = () => {
+        navigation.navigate("HomeDetail", {  operationId: operation.id } );
+    }
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={navigateToHomeDetail} activeOpacity={0.8}>
             <View style={styles.header}>
                 <TextCustomComponent text={`#${operation.id}`} color="text_muted" fontSize={12} fontWeight="500" />
                 <TextCustomComponent text={formatDate(operation.createdAt)} color="text_secondary" fontSize={12} />
@@ -43,6 +48,6 @@ export const HomeItemComponent = ({ operation }: HomeItemProps) => {
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };

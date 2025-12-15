@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { TOKEN_MOCK, USER_KEY } from "../../login/services/login.service";
-import { HomeRequest, HomeResponse } from "./interfaces/home.interfaces";
+import { HomeRequest, HomeResponse, Operation } from "./interfaces/home.interfaces";
 import { operationsDataMock } from "./mock/operations.data";
 
 const validateToken = (token: string) => {

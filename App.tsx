@@ -14,6 +14,7 @@ import {
 import { Navigation } from './src/screens/navigation/root.navigation';
 import React from 'react';
 import { UserProvider } from './src/context/user/user.context';
+import { HomeProvider } from './src/screens/home/context/home.context';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,7 +33,9 @@ function AppContent() {
   return (
     <View style={[styles.container, { paddingTop: safeAreaInsets.top }]}>
       <UserProvider>
-        <Navigation />
+        <HomeProvider>
+          <Navigation />
+        </HomeProvider>
       </UserProvider>
     </View>
   );

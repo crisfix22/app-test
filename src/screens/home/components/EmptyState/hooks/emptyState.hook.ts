@@ -3,6 +3,11 @@ import { EmptyStateConfig, EmptyStateType } from "../interface/emptyState.interf
 export const useEmptyState = () => {
 
     const emptyStateConfig: EmptyStateConfig = {
+        not_found: {
+            title: "Operación no encontrada",
+            subtitle: "Por favor, intenta nuevamente",
+            icon: "❌",
+        },
         error: {
             title: "Ha ocurrido un error al cargar las operaciones",
             subtitle: "Por favor, intenta nuevamente",
