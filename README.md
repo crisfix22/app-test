@@ -2,6 +2,12 @@
 
 Aplicación móvil desarrollada en React Native que permite visualizar operaciones financieras con su respectivo **Carbon Score**, una métrica que indica el impacto ambiental de cada transacción.
 
+## Capturas de Pantalla
+
+| Login | Home | Detalle |
+|:-----:|:----:|:-------:|
+| <img src="docs/assets/login.png" width="200"/> | <img src="docs/assets/home.png" width="200"/> | <img src="docs/assets/home_detail.png" width="200"/> |
+
 ## Credenciales de Prueba
 
 Para acceder a la aplicación, utiliza las siguientes credenciales:
