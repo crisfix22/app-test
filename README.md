@@ -4,7 +4,7 @@ Aplicación móvil desarrollada en React Native que permite visualizar operacion
 
 ## Capturas de Pantalla
 
-| Login | Home | Detalle | Icono en dispositivo |
+| Login | Home | Detalle | App en dispositivo |
 |:-----:|:----:|:-------:|:--------------------:|
 | <img src="docs/assets/login.png" width="200"/> | <img src="docs/assets/home.png" width="200"/> | <img src="docs/assets/home_detail.png" width="200"/> | <img src="docs/assets/device_home.png" width="200"/> |
 
