@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import { styles } from "./EmptyState.styles";
 import { useEmptyState } from "./hooks/emptyState.hook";
 import { EmptyStateType } from "./interface/emptyState.interface";
-import TextCustomComponent from "../../../../components/TextCustom/textCustom.component";
+import TextCustomComponent from "../../../../global/components/TextCustom/textCustom.component";
 
 interface EmptyStateComponentProps {
     type: EmptyStateType;

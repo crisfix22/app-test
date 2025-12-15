@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import { HomeItemProps } from "./interface/homeIten.interface";
 import { styles } from "./HomeItem.styles";
 import { useHomeItem } from "./hooks/useHomeItem.hook";
-import TextCustomComponent from "../../../../components/TextCustom/textCustom.component";
+import TextCustomComponent from "../../../../global/components/TextCustom/textCustom.component";
 
 const formatAmount = (amount: number): string => {
     return new Intl.NumberFormat('es-CL', {

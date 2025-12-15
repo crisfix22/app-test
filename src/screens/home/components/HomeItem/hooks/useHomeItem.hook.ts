@@ -1,4 +1,4 @@
-import { COLORS } from "../../../../../styles/global.styles";
+import { COLORS } from "../../../../../global/styles/global.styles";
 
 export const useHomeItem = () => {
     // Colores para el indicador de carbonScore

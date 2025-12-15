@@ -1,11 +1,11 @@
 import { Alert, Image, KeyboardAvoidingView, TextInput, View, } from 'react-native';
-import TextCustomComponent from '../../components/TextCustom/textCustom.component';
 import { styles } from './login.styles';
-import { ButtonCustomComponent } from '../../components/ButtonCustom/buttonCustom.component';
 import { useLogin } from './hooks/useLogin.hook';
 import { useState } from 'react';
 import { StackActions, useNavigation } from '@react-navigation/native';
-import { LoadingComponent } from '../../components/Loading/loading.component';
+import LoadingComponent from '../../global/components/Loading/loading.component';
+import TextCustomComponent from '../../global/components/TextCustom/textCustom.component';
+import { ButtonCustomComponent } from '../../global/components/ButtonCustom/buttonCustom.component';
 
 export default function LoginScreen() {
     const [email, setEmail] = useState("");

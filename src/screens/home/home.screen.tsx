@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { SkeletonList } from "./components/SkeletonItem/SkeletonItem.component";
 import { EmptyStateComponent } from "./components/EmptyState/EmptyState.component";
 import { styles } from "./home.styles";
-import TextCustomComponent from "../../components/TextCustom/textCustom.component";
+import TextCustomComponent from "../../global/components/TextCustom/textCustom.component";
 
 export const HomeScreen = () => {
     const { getHome } = useHome();

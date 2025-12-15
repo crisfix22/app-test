@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "../../styles/global.styles";
+import { COLORS } from "../../global/styles/global.styles";
 
 const INPUT_WIDTH = '100%';
 const INPUT_HEIGHT = 60;

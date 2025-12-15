@@ -9,7 +9,7 @@ export const loadingStyles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0, 26, 77, 0.7)', // blue_navy con transparencia
+        backgroundColor: COLORS.background_primary, // blue_navy con transparencia
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: 999,
@@ -24,7 +24,7 @@ export const loadingStyles = StyleSheet.create({
     
     // Caja del loading con efecto glassmorphism
     loadingBox: {
-        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        backgroundColor: COLORS.white,
         borderRadius: 16,
         padding: 28,
         alignItems: 'center',

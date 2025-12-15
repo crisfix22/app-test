@@ -12,6 +12,8 @@ export const useLogin = () => {
     
     const { setUser } = useUserContext();
     const validateCredentials = (email: string, password: string): boolean => {
+        console.log('email', email);
+        console.log('password', password);
         if(!email || !password) {
             return false;
         }
