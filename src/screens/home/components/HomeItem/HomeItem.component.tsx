@@ -1,6 +1,8 @@
 import { View, Text } from "react-native";
 import { HomeItemProps } from "./interface/homeIten.interface";
-import { styles, getCarbonScoreColor, getCarbonScoreLabel } from "./HomeItem.styles";
+import { styles } from "./HomeItem.styles";
+import { useHomeItem } from "./hooks/useHomeItem.hook";
+import TextCustomComponent from "../../../../components/TextCustom/textCustom.component";
 
 const formatAmount = (amount: number): string => {
     return new Intl.NumberFormat('es-CL', {
@@ -20,25 +22,24 @@ const formatDate = (date: Date): string => {
 };
 
 export const HomeItemComponent = ({ operation }: HomeItemProps) => {
-    const carbonColor = getCarbonScoreColor(operation.carbonScore);
-    
+    const { getCarbonScoreColor } = useHomeItem();
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.idText}>#{operation.id}</Text>
-                <Text style={styles.dateText}>{formatDate(operation.createdAt)}</Text>
+                <TextCustomComponent text={`#${operation.id}`} color="text_muted" fontSize={12} fontWeight="500" />
+                <TextCustomComponent text={formatDate(operation.createdAt)} color="text_secondary" fontSize={12} />
             </View>
             
             <View style={styles.content}>
                 <View style={styles.amountContainer}>
-                    <Text style={styles.amountLabel}>Monto</Text>
-                    <Text style={styles.amountValue}>{formatAmount(operation.amount)}</Text>
+                    <TextCustomComponent text="Monto" color="text_secondary" fontSize={12} />
+                    <TextCustomComponent text={formatAmount(operation.amount)} color="text_primary" fontSize={24} fontWeight="700" />
                 </View>
                 
                 <View style={styles.carbonContainer}>
-                    <Text style={styles.carbonLabel}>Carbon Score</Text>
-                    <View style={[styles.carbonBadge, { backgroundColor: carbonColor }]}>
-                        <Text style={styles.carbonValue}>{operation.carbonScore}</Text>
+                    <TextCustomComponent text="Carbon Score" color="text_secondary" fontSize={10} />
+                    <View style={[styles.carbonBadge, { backgroundColor: getCarbonScoreColor(operation.carbonScore) }]}>
+                        <TextCustomComponent text={operation.carbonScore.toString()} color="background_primary" fontSize={16} fontWeight="700" />
                     </View>
                 </View>
             </View>

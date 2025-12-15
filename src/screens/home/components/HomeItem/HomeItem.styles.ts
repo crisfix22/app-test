@@ -3,7 +3,7 @@ import { COLORS } from "../../../../styles/global.styles";
 
 export const styles = StyleSheet.create({
     container: {
-        backgroundColor: COLORS.background_primary,
+        backgroundColor: COLORS.white,
         borderRadius: 16,
         padding: 16,
         marginHorizontal: 16,
@@ -76,24 +76,3 @@ export const styles = StyleSheet.create({
         color: COLORS.background_primary,
     },
 });
-
-// Colores para el indicador de carbonScore
-export const getCarbonScoreColor = (score: number): string => {
-    if (score <= 300) {
-        return '#28A745'; // Verde - score bajo
-    } else if (score <= 500) {
-        return '#FFC107'; // Amarillo - score medio
-    } else {
-        return '#DC3545'; // Rojo - score alto
-    }
-};
-
-export const getCarbonScoreLabel = (score: number): string => {
-    if (score <= 300) {
-        return 'Bajo';
-    } else if (score <= 500) {
-        return 'Medio';
-    } else {
-        return 'Alto';
-    }
-};

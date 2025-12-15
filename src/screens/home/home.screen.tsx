@@ -1,4 +1,4 @@
-import { FlatList, View, Text, Alert } from "react-native";
+import { FlatList, View, Text, Alert, RefreshControl } from "react-native";
 import { HomeItemComponent } from "./components/HomeItem/HomeItem.component";
 import { Operation } from "./services/interfaces/home.interfaces";
 import { useHome } from "./hooks/useHome.hook";
@@ -33,19 +33,15 @@ export const HomeScreen = () => {
         if (isLoading) {
             return <SkeletonList />;
         }
-
-        if (operations.length === 0) {
-            return <EmptyStateComponent type="empty" />;
-        }
-        if (isError) {
-            return <EmptyStateComponent type="error" />;
-        }
         return (
             <FlatList
                 data={operations}
+                refreshing={isLoading}
+                refreshControl={<RefreshControl refreshing={isLoading} onRefresh={init} />}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => <HomeItemComponent operation={item} />}
                 contentContainerStyle={styles.listContent}
+                ListEmptyComponent={ operations.length === 0 ? <EmptyStateComponent type={isError ? "error" : "empty"} /> : null}
                 showsVerticalScrollIndicator={false}
             />
         );
