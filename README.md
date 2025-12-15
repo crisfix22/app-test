@@ -1,97 +1,117 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Carbon App
 
-# Getting Started
+Aplicación móvil desarrollada en React Native que permite visualizar operaciones financieras con su respectivo **Carbon Score**, una métrica que indica el impacto ambiental de cada transacción.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Credenciales de Prueba
 
-## Step 1: Start Metro
+Para acceder a la aplicación, utiliza las siguientes credenciales:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Email:** `test@carbon.com`
+- **Password:** `carbon123`
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## Setup Inicial
 
-```sh
-# Using npm
-npm start
+### Requisitos previos
 
-# OR using Yarn
-yarn start
+- Node.js >= 20
+- Yarn
+- Android Studio con emulador configurado
+
+### Instalación
+
+1. Clonar el repositorio
+2. Instalar dependencias:
+
+```bash
+yarn install
 ```
 
-## Step 2: Build and run your app
+3. Ejecutar la aplicación:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
+```bash
 yarn android
 ```
 
-### iOS
+## Estructura de Carpetas
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```
+src/
+├── assets/           → Recursos estáticos (imágenes, logo)
+├── context/          → Context global de la aplicación
+│   └── user/         → Manejo del estado del usuario autenticado
+├── global/           → Componentes y estilos reutilizables
+│   ├── components/   → Componentes genéricos (Button, Text, Loading)
+│   └── styles/       → Estilos globales y colores
+└── screens/          → Pantallas de la aplicación
+    ├── login/        → Pantalla de inicio de sesión
+    ├── home/         → Lista de operaciones
+    ├── homeDetail/   → Detalle de una operación
+    └── navigation/   → Configuración de navegación
 ```
 
-Then, and every time you update your native dependencies, run:
+### Estructura interna de cada pantalla
 
-```sh
-bundle exec pod install
+Cada pantalla sigue una estructura consistente:
+
+```
+screen/
+├── components/       → Componentes específicos de la pantalla
+├── context/          → Context local (si aplica)
+├── hooks/            → Custom hooks de la pantalla
+├── services/         → Llamadas a servicios/API
+├── interface/        → Tipos e interfaces TypeScript
+├── screen.tsx        → Componente principal
+└── styles.ts         → Estilos de la pantalla
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## Patrones Implementados
 
-```sh
-# Using npm
-npm run ios
+### Context API
+Se utiliza React Context para el manejo de estado:
+- **UserContext**: Almacena la información del usuario autenticado de forma global
+- **HomeContext**: Maneja el estado de las operaciones a nivel local de la pantalla
 
-# OR using Yarn
-yarn ios
-```
+### Custom Hooks
+La lógica de negocio está separada en hooks personalizados:
+- `useLogin`: Validación de credenciales y proceso de autenticación
+- `useHome`: Obtención y manejo de operaciones
+- `useHomeDetail`: Formateo de datos y lógica del detalle
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Services
+Capa de servicios que encapsula las llamadas a la API:
+- Simulación de respuestas con datos mock
+- Validación de tokens
+- Manejo de AsyncStorage para persistencia
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Componentes Reutilizables
+Componentes genéricos con props personalizables:
+- `ButtonCustom`: Botón estilizado
+- `TextCustom`: Texto con colores y estilos predefinidos
+- `Loading`: Indicador de carga
 
-## Step 3: Modify your app
+### TypeScript
+Tipado estricto en toda la aplicación:
+- Interfaces para props de componentes
+- Types para respuestas de servicios
+- Tipado en navegación
 
-Now that you have successfully run the app, let's make changes!
+## Ventajas de esta Arquitectura
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+1. **Separación de responsabilidades**: Cada archivo tiene una función específica, lo que facilita encontrar y modificar código.
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+2. **Código reutilizable**: Los componentes globales y hooks pueden usarse en cualquier parte de la app sin duplicar código.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+3. **Fácil de mantener**: Al tener una estructura clara, agregar nuevas pantallas o funcionalidades es sencillo siguiendo el mismo patrón.
 
-## Congratulations! :tada:
+4. **Escalable**: La arquitectura permite crecer sin problemas, agregando nuevas pantallas, servicios o contextos según sea necesario.
 
-You've successfully run and modified your React Native App. :partying_face:
+5. **Testing friendly**: Al tener la lógica separada en hooks y services, es más fácil escribir tests unitarios.
 
-### Now what?
+6. **Colaboración en equipo**: La estructura predecible permite que varios desarrolladores trabajen en paralelo sin conflictos.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## Tecnologías Utilizadas
 
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- React Native 0.83
+- React Navigation 7
+- TypeScript
+- AsyncStorage
