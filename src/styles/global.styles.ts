@@ -34,8 +34,9 @@ export const COLORS = {
     // === ESTADOS Y UTILIDADES ===
     border_primary: '#0066FF',    // Bordes principales
     border_light: '#CCE0FF',      // Bordes sutiles
-    background_primary: '#FFFFFF', // Fondo principal
+    background_primary: '#D3D3D3', // Fondo principal
     background_secondary: '#E6F0FF', // Fondo secundario azulado
+    input_background: '#FFFFFF', // Fondo de inputs
     
     // === COLORES DE APOYO (para errores, éxito, etc.) ===
     error: '#DC3545',

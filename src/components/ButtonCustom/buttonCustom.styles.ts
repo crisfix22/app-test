@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "../../styles/global.styles";
 
-const BUTTON_HEIGHT = 40;
+const BUTTON_HEIGHT = 60;
 const BUTTON_WIDTH = '100%';
-const BUTTON_RADIUS = 10;
+const BUTTON_RADIUS = 15;
 const BUTTON_PADDING = 10;
 
 export const styles = StyleSheet.create({
