@@ -20,11 +20,10 @@ export default function LoginScreen() {
         }
         setIsLoading(true);
         const response = await login(email, password);
+        setIsLoading(false);
         if(response.success) {
-            setIsLoading(false);
         navigation.dispatch(StackActions.replace("Home"));
         } else {
-            setIsLoading(false);
             Alert.alert("Error", response.message);
         }
     }

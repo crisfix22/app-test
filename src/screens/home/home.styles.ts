@@ -4,7 +4,7 @@ import { COLORS } from "../../styles/global.styles";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.background_secondary,
+        backgroundColor: COLORS.white,
     },
     header: {
         paddingHorizontal: 16,

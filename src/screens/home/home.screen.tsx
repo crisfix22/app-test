@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { SkeletonList } from "./components/SkeletonItem/SkeletonItem.component";
 import { EmptyStateComponent } from "./components/EmptyState/EmptyState.component";
 import { styles } from "./home.styles";
+import TextCustomComponent from "../../components/TextCustom/textCustom.component";
 
 export const HomeScreen = () => {
     const { getHome } = useHome();
@@ -53,8 +54,7 @@ export const HomeScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerTitle}>Operaciones</Text>
-                <Text style={styles.headerSubtitle}>Tu historial de transacciones</Text>
+                <TextCustomComponent text="Operaciones" color="text_primary" fontSize={28} fontWeight="bold" />
             </View>
             {renderContent()}
         </View>

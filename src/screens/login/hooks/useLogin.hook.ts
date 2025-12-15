@@ -2,6 +2,12 @@ import { useUserContext } from "../../../context/user/user.context";
 import { LoginResponse } from "../services/interfaces/login.interface";
 import { loginService } from "../services/login.service";
 
+const EMPTY_USER = {
+    id: "",
+    name: "",
+    email: "",
+    token: "",
+}
 export const useLogin = () => {
     
     const { setUser } = useUserContext();
@@ -22,7 +28,12 @@ export const useLogin = () => {
             });
             return response;
         } catch (error: any) {
-            throw new Error(error.message);
+            //TODO: cuando se implemente el backend, se debe cambiar el mensaje de error
+            return {
+                success: false,
+                data: EMPTY_USER,
+                message: "Credenciales incorrectas",
+            }
         }
     };
 

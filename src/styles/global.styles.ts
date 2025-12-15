@@ -36,12 +36,13 @@ export const COLORS = {
     border_light: '#CCE0FF',      // Bordes sutiles
     background_primary: '#D3D3D3', // Fondo principal
     background_secondary: '#E6F0FF', // Fondo secundario azulado
-    input_background: '#FFFFFF', // Fondo de inputs
-    
+    input_background: '#D3D3D3', // Fondo de inputs
+    gray: '#E6F0FF',
     // === COLORES DE APOYO (para errores, éxito, etc.) ===
     error: '#DC3545',
     success: '#28A745',
     warning: '#FFC107',
+    white: '#FFFFFF',
   };
   
 export type Colors = typeof COLORS;

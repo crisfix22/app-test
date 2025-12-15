@@ -25,13 +25,13 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     padding: CONTAINER_PADDING,
-    backgroundColor: COLORS.background_primary,
+    backgroundColor: COLORS.white,
   },
   titleText: {
     marginBottom: TITLE_TEXT_MARGIN_BOTTOM,
   },
   input: {
-    backgroundColor: COLORS.input_background,
+    backgroundColor: COLORS.gray,
     width: INPUT_WIDTH,
     height: INPUT_HEIGHT,
     borderRadius: INPUT_RADIUS,
