@@ -6,8 +6,18 @@ import LoginScreen from "../login/login.screen";
 const RootStack = createNativeStackNavigator({
     initialRouteName: "Login",
     screens: {
-      Home: HomeScreen,
-      Login: LoginScreen,
+      Home: {
+        screen: HomeScreen,
+        options: {
+          headerShown: false,
+        },
+      },
+      Login: {
+        screen: LoginScreen,
+        options: {
+          headerShown: false,
+        },
+      }
     },
   });
 

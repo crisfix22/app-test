@@ -4,14 +4,15 @@ import { HomeRequest, HomeResponse } from "./interfaces/home.interfaces";
 import { operationsDataMock } from "./mock/operations.data";
 
 const validateToken = (token: string) => {
-    if(token === TOKEN_MOCK) {
+    if(token === "123") {
         return true;
     }
-    return true;
+    return false;
 }
 
 export const getAllOperations = async (request: HomeRequest) => {
     const user = JSON.parse(await AsyncStorage.getItem(USER_KEY) ?? "{}");
+    console.log(user);
     if(!validateToken(user.token)) {
         throw new Error("Invalid token");
     }
